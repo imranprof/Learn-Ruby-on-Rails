@@ -1,0 +1,33 @@
+
+
+<table class = "table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Twitter</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  <% @friends.each do |friend| %>
+      <%if friend.user == current_user %>
+        <tr>
+          <td><%= link_to  friend.first_name + ' ' +friend.last_name, friend, class: "link" %></td>
+          <td><%= friend.email %></td>
+          <td><%= friend.twitter %></td>
+         </tr>
+      <% end %>
+    <%end %>
+  </tbody>
+
+</table>
+
+
+<style>
+    .link{
+        text-decoration: none;
+        color: teal;
+    }
+</style>
